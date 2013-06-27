@@ -1,0 +1,78 @@
+require 'rubygems'
+require 'csv'
+
+reqd_keys = ['A14', 'A12', 'A1', 'A2', 'A3', 'A5', 'A9', 'A8']
+
+f = File.open('1369158150.csv', 'r')
+
+data = CSV.parse(f.read());0
+data = data[1..data.length];0
+
+data.each do |row|
+  q3_selected = 0
+  q3_answer = []
+  q5_answer = []
+  q6_answer = []
+  q7_answer = []
+  q8_answer = []
+  q9_answer = []
+  q10_answer = []
+  q11_answer = []
+
+  row[10].split(',').each do |a|
+    q3_answer << a.split(':')
+  end
+
+  count = 0
+  q3_answer.each do |a|
+    count +=1 if a[1] == ('A6')
+  end
+
+  row[12].split(',').each do |a|
+    q5_answer << a.split(':')
+    q5_answer.reject!{|j| j[1] == 'N0'}
+  end
+
+  row[13].split(',').each do |a|
+    q6_answer << a.split(':')
+    q6_answer.reject!{|j| j[1] == 'N0'}
+  end
+
+  row[14].split(',').each do |a|
+    q7_answer << a.split(':')
+    q7_answer.reject!{|j| j[1] == 'N0'}
+  end
+
+  row[15].split(',').each do |a|
+    q8_answer << a.split(':')
+    q8_answer.reject!{|j| j[1] == 'N0'}
+  end
+
+  row[16].split(',').each do |a|
+    q9_answer << a.split(':')
+    q9_answer.reject!{|j| j[1] == 'N0'}
+  end
+
+  row[17].split(',').each do |a|
+    q10_answer << a.split(':')
+    q10_answer.reject!{|j| j[1] == 'N0'}
+  end
+
+  row[18].split(',').each do |a|
+    q11_answer << a.split(':')
+    q11_answer.reject!{|j| j[1] == 'N0'}
+  end
+
+  if (8 - count != q5_answer.length)
+    puts row[0]
+    puts "Q3:\t" + (8 - count).to_s
+    puts "Q5:\t" + q5_answer.length.to_s
+    puts "Q6:\t" + q6_answer.length.to_s
+    puts "Q7:\t" + q7_answer.length.to_s
+    puts "Q8:\t" + q8_answer.length.to_s
+    puts "Q9:\t" + q9_answer.length.to_s
+    puts "Q10:\t" + q10_answer.length.to_s
+    puts "Q11:\t" + q11_answer.length.to_s
+    puts "======="
+  end
+end;0
