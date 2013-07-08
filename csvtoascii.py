@@ -5,7 +5,7 @@ import datetime
 import csv
 
 
-sys.path.append("/home/krg85/Projects/VoxApp/core")
+sys.path.append("/Users/himanshuawasthi/code/voxapp/core")
 from core.result.resultutils import RespondentReportGenerator
 
 def csvtoasci(filename, codingfile):
