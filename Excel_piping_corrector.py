@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+#This scripts has been made mainly for Survey 41(Survey 1) which has 8 brands.
+
 import csv
 
 import codecs
